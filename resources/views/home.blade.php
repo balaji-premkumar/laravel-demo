@@ -1,26 +1,19 @@
 @extends('layout')
 @section('content')
-    <div class="card">
-        <div class="card-content">
-            <p>Posting Function</p>
+    <div class="row" style="margin-top:1rem;">
+        <div class="col s3">
+            <button class="btn waves-effect waves-light indigo darken-2 white-text" id="createpost">Create</button>
         </div>
-        <div class="card-tabs">
-            <ul class="tabs tabs-fixed-width">
-                <li class="tab"><a href="#create">Create</a></li>
-                <li class="tab"><a class="edit" href="#edit">Edit</a></li>
-                <li class="tab"><a href="#list">List</a></li>
-            </ul>
+        <div class="col s3">
+            <button class="btn waves-effect waves-light indigo darken-2 white-text" id="showpost">Show</button>
         </div>
-        <div class="card-content grey lighten-4">
-            <div id="create">
-                @include("form")
-            </div>
-            <div id="edit">Test 2</div>
-            <div id="list">Test 3</div>
-        </div>
+        {{--        <div class="col s3">
+                    <button class="btn waves-effect waves-light indigo darken-2 white-text" id="updatepost">Update</button>
+                </div>
+                <div class="col s3">
+                    <button class="btn waves-effect waves-light indigo darken-2 white-text" id="deletepost">Delete</button>
+                </div>--}}
     </div>
 
-    <script>
-        $('.tabs').tabs();
-    </script>
+    <div id="response" class="row"></div>
 @endsection

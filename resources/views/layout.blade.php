@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel Test</title>
     {{--    <link rel="stylesheet" href="/css/pubilc.css"/>--}}
-    <link rel="stylesheet" href={{asset('css/app.css')}} />
-    <script src={{asset("js/app.js")}}></script>
+    <link rel="stylesheet" href={{mix('css/app.css')}} />
+    <script src={{mix("js/manifest.js")}}></script>
+    <script src={{mix("js/vendor.js")}}></script>
 </head>
 <body>
 <nav>
@@ -19,5 +20,6 @@
 <div class="container">
     @yield("content")
 </div>
+<script src={{mix("js/app.js")}}></script>
 </body>
 </html>

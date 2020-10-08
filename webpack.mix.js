@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const webpack = require('webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,13 +12,25 @@ const mix = require('laravel-mix');
  |
  */
 
-/*
+mix.webpackConfig({
+    plugins: [
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'jQuery': 'jquery',
+            'window.jQuery': 'jquery',
+        }),
+    ]
+});
+
+
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-
-    ]);
-*/
-
+    .extract([
+        'jquery',
+        'materialize-css'
+    ])
+    .sass('resources/scss/app.scss', 'public/css')
+    .version();
+/*
 mix.styles([
     'node_modules/materialize-css/dist/css/materialize.min.css',
     'resources/css/app.css'
@@ -28,3 +41,4 @@ mix.js([
     'node_modules/materialize-css/dist/js/materialize.min.js',
     'resources/js/app.js'
 ], 'public/js/app.js');
+*/

@@ -7,8 +7,10 @@ window._ = require('lodash');
  */
 
 window.axios = require('axios');
-
+global.$ = global.jQuery = require('jquery/dist/jquery.min');
+window.M = require('materialize-css/dist/js/materialize.min');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
