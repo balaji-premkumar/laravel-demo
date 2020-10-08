@@ -11,7 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
+/*
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
-        //
+
     ]);
+*/
+
+mix.styles([
+    'node_modules/materialize-css/dist/css/materialize.min.css',
+    'resources/css/app.css'
+], 'public/css/app.css');
+
+
+mix.js([
+    'node_modules/materialize-css/dist/js/materialize.min.js',
+    'resources/js/app.js'
+], 'public/js/app.js');
