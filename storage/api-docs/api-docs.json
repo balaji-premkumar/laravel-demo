@@ -1,0 +1,202 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel Swagger Test",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/post": {
+            "get": {
+                "tags": [
+                    "post"
+                ],
+                "summary": "Get All Posts",
+                "description": "Get All available posts from DB",
+                "operationId": "getallposts",
+                "responses": {
+                    "200": {
+                        "description": "Returns List of postings"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "post"
+                ],
+                "summary": "Update a Post",
+                "description": "update a posting to DB",
+                "operationId": "updateapost",
+                "requestBody": {
+                    "description": "Pass Post Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "returns the updated post data"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "post"
+                ],
+                "summary": "Create a new Posts",
+                "description": "Add a posting to DB",
+                "operationId": "addapost",
+                "requestBody": {
+                    "description": "Pass Post Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Returns the created post data"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "post"
+                ],
+                "summary": "Delete a Single Post",
+                "description": "Delete a posting to DB",
+                "operationId": "deleteapost",
+                "requestBody": {
+                    "description": "Pass a post id to delete",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "returns nothing"
+                    }
+                }
+            }
+        },
+        "/api/post/{id}": {
+            "get": {
+                "tags": [
+                    "post"
+                ],
+                "summary": "Get a Single Post",
+                "description": "Get a posting to DB",
+                "operationId": "getapost",
+                "requestBody": {
+                    "description": "Pass Post Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "returns a single post data"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Posts": {
+                "properties": {
+                    "title": {
+                        "description": "Post Title",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Post Title",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Post Status",
+                        "type": "boolean"
+                    },
+                    "deleted": {
+                        "description": "Post Deleted Status",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Initial creation timestamp",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true"
+                    },
+                    "updated_at": {
+                        "description": "Last update timestamp",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
